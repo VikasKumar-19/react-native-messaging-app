@@ -2,13 +2,17 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View } from "react-native";
+import HomeScreen from "./screens/home-screen";
 import LoginScreen from "./screens/login-screen";
+import RegisterScreen from "./screens/register-screen";
 
 const Stack = createNativeStackNavigator();
 const globalScreenOptions = {
   headerStyle: {backgroundColor: "#2c6bed"},
   headerTitleStyle: {color: "white"},
-  headerTitleColor: "white"
+  headerTitleColor: "white", 
+  headerTitleAlign: "center",
+  headerTintColor: "white"
 }
 
 export default function App() {
@@ -16,16 +20,9 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator screenOptions={globalScreenOptions}>
         <Stack.Screen name="Login" component={LoginScreen} />
+        <Stack.Screen name="Register" component={RegisterScreen} />
+        <Stack.Screen name="Home" component={HomeScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});
